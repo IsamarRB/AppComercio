@@ -5,12 +5,22 @@ public abstract class Producto implements GestionProducto {
     protected String nombre;
     protected double precio;
     protected int stock;
+    protected Integer diasCaducidad;
+
 
     public Producto(int codProducto, String nombre, double precio, int stock) {
         this.codProducto = codProducto;
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
+        this.diasCaducidad = diasCaducidad;
+
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " - Precio: $" + precio + " - Stock: " + stock +
+                (diasCaducidad != null ? " - Días para caducar: " + diasCaducidad : "");
     }
 
     public void mostrarInfo() {

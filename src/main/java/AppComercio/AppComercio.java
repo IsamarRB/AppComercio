@@ -2,6 +2,7 @@ package AppComercio;
 
 import AppComercio.cliente.Cliente;
 import AppComercio.cliente.Persona;
+import AppComercio.modelo.Inventario;
 import AppComercio.modelo.NoPerecedero;
 import AppComercio.modelo.Perecedero;
 import AppComercio.modelo.Producto;
@@ -37,4 +38,6 @@ public class AppComercio {
         cliente.enviarPedido();
         scanner.close();
     }
+    Inventario inventario = new Inventario();
+        inventario.mostrarInventario(); // Muestra la lista de productos
 }
