@@ -26,4 +26,20 @@ public abstract class Producto implements GestionProducto {
             stock--;
         }
     }
+
+    public int getCodProducto() {
+        return codProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
 }
