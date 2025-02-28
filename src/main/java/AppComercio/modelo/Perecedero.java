@@ -3,7 +3,7 @@ package AppComercio.modelo;
 public class Perecedero extends Producto{
     private int diasCaducar;
 
-    public Perecedero(int codProducto, String nombre, double precio, int stock, int diasCaducar) {
+    public Perecedero(String nombre, double precio, int stock, int diasCaducar) {
         super(codProducto, nombre, precio, stock);
         this.diasCaducar = diasCaducar;
     }

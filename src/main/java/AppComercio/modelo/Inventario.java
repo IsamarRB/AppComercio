@@ -14,20 +14,25 @@ public class Inventario {
 
     // Método para inicializar los productos en el inventario
     private void inicializarInventario() {
-        agregarProducto(101, new Producto("Leche entera", 1.25, 10, 10));
-        agregarProducto(103, new Producto("Yogurt natural", 0.55, 5, 2));
-        agregarProducto(122, new Producto("Pan de molde", 1.65, 0, 25));
-        agregarProducto(115, new Producto("Queso curado", 5.25, 10, 3));
-        agregarProducto(134, new Producto("Huevos", 1.55, 5, 12));
-        agregarProducto(201, new Producto("Manta polar", 30.0, 5, null));
-        agregarProducto(222, new Producto("Cojín floral", 7.55, 10, null));
-        agregarProducto(213, new Producto("Almohada de plumas", 15.95, 10, null));
-        agregarProducto(244, new Producto("Sábanas blancas", 22.10, 5, null));
-        agregarProducto(205, new Producto("Sábanas rosas", 22.10, 0, null));
+        // Usar subclases de Producto (Perecedero y NoPerecedero)
+        agregarProducto(101, new Perecedero("Leche entera", 1.25, 10, 10));
+        agregarProducto(103, new Perecedero("Yogurt natural", 0.55, 5, 2));
+        agregarProducto(122, new Perecedero("Pan de molde", 1.65, 0, 25));
+        agregarProducto(115, new Perecedero("Queso curado", 5.25, 10, 3));
+        agregarProducto(134, new Perecedero("Huevos", 1.55, 5, 12));
+        agregarProducto(201, new NoPerecedero("Manta polar", 30.0, 5));
+        agregarProducto(222, new NoPerecedero("Cojín floral", 7.55, 10));
+        agregarProducto(213, new NoPerecedero("Almohada de plumas", 15.95, 10));
+        agregarProducto(244, new NoPerecedero("Sábanas blancas", 22.10, 5));
+        agregarProducto(205, new NoPerecedero("Sábanas rosas", 22.10, 0));
     }
 
     // Método para agregar productos al inventario
     public void agregarProducto(int codigo, Producto producto) {
+        if (producto == null) {
+            System.out.println("Error: El producto no puede ser nulo.");
+            return;
+        }
         if (!productos.containsKey(codigo)) {
             productos.put(codigo, producto);
         } else {
@@ -51,13 +56,17 @@ public class Inventario {
             System.out.println("El inventario está vacío.");
         } else {
             productos.forEach((codigo, producto) ->
-                    System.out.println("Código: " + codigo + " - " + producto)
+                    System.out.println("Código: " + codigo + " - " + producto.toString())
             );
         }
     }
 
     // Método para obtener un producto específico por su código
     public Producto obtenerProducto(int codigo) {
-        return productos.getOrDefault(codigo, null);
+        Producto producto = productos.get(codigo);
+        if (producto == null) {
+            System.out.println("Advertencia: El producto con código " + codigo + " no existe.");
+        }
+        return producto;
     }
 }

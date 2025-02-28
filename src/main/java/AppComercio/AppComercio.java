@@ -13,8 +13,8 @@ import java.util.Scanner;
 public class AppComercio {
     public static void main(String[] args) {
         Producto[] almacen = {
-                new Perecedero(101, "Leche", 1.25, 10, 10),
-                new NoPerecedero(201, "Manta", 30.0, 5)
+                new Perecedero("Leche", 1.25, 10, 10),
+                new NoPerecedero("Manta", 30.0, 5)
         };
 
         Persona persona = new Persona("Rodrigo Tapias", "11.111.111-H", "Calle Federico García Lorca, 3");

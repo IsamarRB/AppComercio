@@ -1,7 +1,7 @@
 package AppComercio.modelo;
 
 public class NoPerecedero extends Producto {
-    public NoPerecedero(int codProducto, String nombre, double precio, int stock) {
+    public NoPerecedero(String nombre, double precio, int stock) {
         super(codProducto, nombre, precio, stock);
     }
 
