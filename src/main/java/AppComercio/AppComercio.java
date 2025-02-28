@@ -1,4 +1,4 @@
-package FormacionJava;
+package AppComercio;
 
 public class AppComercio {
     public static void main (String[] args) {
