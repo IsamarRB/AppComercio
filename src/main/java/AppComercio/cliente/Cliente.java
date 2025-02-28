@@ -37,5 +37,7 @@ public class Cliente implements GestionClientes {
 
     public void agregarProducto(Producto producto) {
         carrito.add(producto);
+        producto.disminuirStock();
+        System.out.println("¡¡Producto añadido al carrito!!");
     }
 }
