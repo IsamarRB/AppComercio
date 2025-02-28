@@ -20,24 +20,32 @@ public class AppComercio {
         Persona persona = new Persona("Rodrigo Tapias", "11.111.111-H", "Calle Federico García Lorca, 3");
         Cliente cliente = new Cliente(persona);
 
+        Inventario inventario = new Inventario();
+        inventario.mostrarInventario(); // Muestra la lista de productos
+
         Scanner scanner = new Scanner(System.in);
         String opcion;
         do {
             Utilidades.mostrarProductos(almacen);
             System.out.println("Ingrese código de producto a comprar (o 'salir' para finalizar):");
             opcion = scanner.nextLine();
-            for (Producto p : almacen) {
-                if (String.valueOf(p.getCodProducto()).equals(opcion)) {
-                    cliente.agregarProducto(p);
-                    break;
+            if (!opcion.equalsIgnoreCase("salir")) {
+                boolean productoEncontrado = false;
+                for (Producto p : almacen) {
+                    if (String.valueOf(p.getCodProducto()).equals(opcion)) {
+                        cliente.agregarProducto(p);
+                        productoEncontrado = true;
+                        break;
+                    }
+                }
+                if (!productoEncontrado) {
+                    System.out.println("Producto no encontrado. Intente de nuevo.");
                 }
             }
         } while (!opcion.equalsIgnoreCase("salir"));
 
         cliente.mostrarCarrito();
-        cliente.enviarPedido();
+        // cliente.enviarPedido(); // Si no está implementado, elimina esta línea
         scanner.close();
     }
-    Inventario inventario = new Inventario();
-        inventario.mostrarInventario(); // Muestra la lista de productos
 }
