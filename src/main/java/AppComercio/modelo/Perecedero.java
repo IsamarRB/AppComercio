@@ -22,4 +22,8 @@ public class Perecedero extends Producto{
             precio *= 0.9;
         }
     }
+
+    public int getDiasCaducar() {
+        return diasCaducar;
+    }
 }
