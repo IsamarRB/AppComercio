@@ -1,16 +1,15 @@
 package AppComercio.modelo;
 
 public class NoPerecedero extends Producto {
+
+    // Constructor
     public NoPerecedero(int codProducto, String nombre, double precio, int stock) {
-        super(nombre, precio, stock);
+        super(codProducto, nombre, precio, stock);
     }
 
-    public NoPerecedero(String manta, double v, int precio) {
-        super(manta, v, precio);
-    }
-
+    // Método actualizarPrecio
     @Override
     public void actualizarPrecio() {
-        double precio = 0.9;
+        setPrecio(getPrecio() * 0.9); // Descuento del 10%
     }
 }

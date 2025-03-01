@@ -3,35 +3,27 @@ package AppComercio.modelo;
 public class Perecedero extends Producto {
     private int diasCaducar;
 
-    // Constructor corregido
-    public Perecedero(String nombre, double precio, int stock, int diasCaducar) {
-        super(nombre, precio, stock); // Llamada al constructor de la superclase (Producto)
-        this.diasCaducar = diasCaducar; // Inicialización del atributo específico de Perecedero
+    // Constructor
+    public Perecedero(int codProducto, String nombre, double precio, int stock, int diasCaducar) {
+        super(codProducto, nombre, precio, stock);
+        this.diasCaducar = diasCaducar;
     }
 
-    @Override
-    public void mostrarInfo() {
-        super.mostrarInfo(); // Llama al método de la superclase para mostrar la información común
-        System.out.printf("Días para caducar: %d\n", diasCaducar); // Muestra la información específica de Perecedero
-    }
-
+    // Método actualizarPrecio
     @Override
     public void actualizarPrecio() {
-        double nuevoPrecio = getPrecio(); // Obtiene el precio actual usando el getter
         if (diasCaducar <= 2) {
-            nuevoPrecio *= 0.7; // Aplica un descuento del 30% si quedan 2 días o menos para caducar
+            setPrecio(getPrecio() * 0.7); // Descuento del 30%
         } else {
-            nuevoPrecio *= 0.9; // Aplica un descuento del 10% en otros casos
+            setPrecio(getPrecio() * 0.9); // Descuento del 10%
         }
-        setPrecio(nuevoPrecio); // Actualiza el precio usando el setter
     }
 
-    // Getter para díasCaducar
+    // Getter y setter para diasCaducar
     public int getDiasCaducar() {
         return diasCaducar;
     }
 
-    // Setter para díasCaducar (opcional, si necesitas modificar este valor)
     public void setDiasCaducar(int diasCaducar) {
         this.diasCaducar = diasCaducar;
     }
