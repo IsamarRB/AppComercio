@@ -21,7 +21,8 @@ public class Cliente implements GestionClientes {
     @Override
     public void mostrarCarrito() {
         double total = 0;
-        carrito.sort((p1, p2) -> Double.compare(p2.getPrecio(), p1.getPrecio()));
+        // Ordenar el carrito por precio de menor a mayor
+        carrito.sort((p1, p2) -> Double.compare(p1.getPrecio(), p2.getPrecio()));
         System.out.println("Carrito de compras:");
         for (Producto p : carrito) {
             p.mostrarInfo();
@@ -35,9 +36,16 @@ public class Cliente implements GestionClientes {
         System.out.printf("Enviando pedido a %s\n", persona.getNomCompleto());
     }
 
-    public void agregarProducto(Producto producto) {
-        carrito.add(producto);
-        producto.disminuirStock();
+    /**
+     * Agrega un producto al carrito y disminuye el stock en la cantidad especificada.
+     *
+     * @param producto El producto a agregar al carrito.
+     * @param cantidad La cantidad de unidades a agregar.
+     */
+    public void agregarProducto(Producto producto, int cantidad) {
+        for (int i = 0; i < cantidad; i++) {
+            carrito.add(producto);
+        }
         System.out.println("¡¡Producto añadido al carrito!!");
     }
 }

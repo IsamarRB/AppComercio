@@ -38,9 +38,29 @@ public class AppComercio {
                     // Buscar el producto por su código
                     for (Producto p : productos) {
                         if (p != null && p.getCodProducto() == codigoProducto) {
-                            cliente.agregarProducto(p);
                             productoEncontrado = true;
-                            System.out.println("Producto agregado al carrito: " + p.getNombre());
+
+                            // Pedir la cantidad al usuario
+                            System.out.println("Ingrese la cantidad que desea agregar al carrito:");
+                            int cantidad = Integer.parseInt(scanner.nextLine());
+
+                            // Verificar si la cantidad es válida
+                            if (cantidad <= 0) {
+                                System.out.println("La cantidad debe ser mayor que 0.");
+                            } else if (p.getStock() >= cantidad) {
+                                // Aplicar descuento (si corresponde)
+                                p.actualizarPrecio();
+
+                                // Añadir el producto al carrito del cliente (en la cantidad especificada)
+                                cliente.agregarProducto(p, cantidad);
+
+                                // Disminuir el stock en la cantidad especificada
+                                p.disminuirStock(cantidad);
+
+                                System.out.println(cantidad + " unidades de " + p.getNombre() + " agregadas al carrito.");
+                            } else {
+                                System.out.println("No hay suficiente stock. Stock disponible: " + p.getStock());
+                            }
                             break;
                         }
                     }
@@ -49,13 +69,20 @@ public class AppComercio {
                         System.out.println("Producto no encontrado. Intente de nuevo.");
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("Entrada inválida. Ingrese un número válido o 'salir'.");
+                    System.out.println("Entrada inválida. Ingrese un número válido.");
                 }
             }
         } while (!opcion.equalsIgnoreCase("salir"));
 
         // Mostrar el carrito del cliente
         cliente.mostrarCarrito();
+
+        // Enviar el pedido al cliente
+        cliente.enviarPedido();
+
+        // Mostrar la lista actualizada de productos con el stock modificado
+        System.out.println("\nLista actualizada de productos en el almacén:");
+        Utilidades.mostrarProductos(productos);
 
         scanner.close();
     }

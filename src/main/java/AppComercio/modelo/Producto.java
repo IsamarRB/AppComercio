@@ -1,7 +1,7 @@
 package AppComercio.modelo;
 
 public abstract class Producto {
-    private int codProducto; // Código del producto
+    private int codProducto;
     private String nombre;
     private double precio;
     private int stock;
@@ -13,6 +13,23 @@ public abstract class Producto {
         this.precio = precio;
         this.stock = stock;
     }
+
+    // Método para disminuir el stock en una cantidad específica
+    public void disminuirStock(int cantidad) {
+        if (stock >= cantidad) {
+            stock -= cantidad;
+        } else {
+            System.out.println("No hay suficiente stock para disminuir.");
+        }
+    }
+
+    // Método para incrementar el stock
+    public void incrementarStock(int cantidad) {
+        stock += cantidad;
+    }
+
+    // Método para actualizar el precio (debe ser implementado en las subclases)
+    public abstract void actualizarPrecio();
 
     // Método mostrarInfo
     public void mostrarInfo() {
@@ -38,11 +55,5 @@ public abstract class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
-    }
-
-    // Método actualizarPrecio
-    public abstract void actualizarPrecio();
-
-    public void disminuirStock() {
     }
 }
