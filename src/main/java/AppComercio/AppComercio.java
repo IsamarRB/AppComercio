@@ -18,7 +18,7 @@ public class AppComercio {
         Producto[] productos = almacen.getProductos();
 
         // Crear una persona y un cliente
-        Persona persona = new Persona("Alessia Romero", "11.111.111-H", "Calle Federico García Lorca, 3");
+        Persona persona = new Persona("Rodrigo Tapias Herrero", "11.111.111-H", "Calle Federico García Lorca, 3");
         Cliente cliente = new Cliente(persona);
 
         Scanner scanner = new Scanner(System.in);
