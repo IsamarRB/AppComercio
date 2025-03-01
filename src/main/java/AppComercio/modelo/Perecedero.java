@@ -5,13 +5,17 @@ public class Perecedero extends Producto {
 
     // Constructor corregido
     public Perecedero(int codProducto, String nombre, double precio, int stock, int diasCaducar) {
-        super(codProducto, nombre, precio, stock); // Llamada al constructor de la clase base (Producto)
-        this.diasCaducar = diasCaducar;
+        super(nombre, precio, stock); // Llamada al constructor de la superclase (Producto)
+        this.diasCaducar = diasCaducar; // Inicialización del atributo específico de Perecedero
+    }
+
+    public Perecedero(String leche, double v, int precio, int stock) {
+        super(leche, v, precio, stock);
     }
 
     @Override
     public void mostrarInfo() {
-        super.mostrarInfo(); // Llama al método de la clase base para mostrar la información común
+        super.mostrarInfo(); // Llama al método de la superclase para mostrar la información común
         System.out.printf("Días para caducar: %d\n", diasCaducar); // Muestra la información específica de Perecedero
     }
 

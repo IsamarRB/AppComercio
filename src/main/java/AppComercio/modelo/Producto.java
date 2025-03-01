@@ -8,13 +8,16 @@ public abstract class Producto implements GestionProducto {
     protected Integer diasCaducidad;
 
 
-    public Producto(int codProducto, String nombre, double precio, int stock) {
+    public Producto(String nombre, double precio, int stock) {
         this.codProducto = codProducto;
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
         this.diasCaducidad = diasCaducidad;
 
+    }
+
+    public Producto(String leche, double v, int precio, int stock) {
     }
 
     @Override
