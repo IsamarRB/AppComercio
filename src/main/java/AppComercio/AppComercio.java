@@ -17,7 +17,7 @@ public class AppComercio {
                 new NoPerecedero("Manta", 30.0, 5)
         };
 
-        Persona persona = new Persona("Rodrigo Tapias", "11.111.111-H", "Calle Federico García Lorca, 3");
+        Persona persona = new Persona("Alessia Romero", "11.111.111-H", "Calle Federico García Lorca, 3");
         Cliente cliente = new Cliente(persona);
 
         Inventario inventario = new Inventario();

@@ -4,13 +4,9 @@ public class Perecedero extends Producto {
     private int diasCaducar;
 
     // Constructor corregido
-    public Perecedero(int codProducto, String nombre, double precio, int stock, int diasCaducar) {
+    public Perecedero(String nombre, double precio, int stock, int diasCaducar) {
         super(nombre, precio, stock); // Llamada al constructor de la superclase (Producto)
         this.diasCaducar = diasCaducar; // Inicialización del atributo específico de Perecedero
-    }
-
-    public Perecedero(String leche, double v, int precio, int stock) {
-        super(leche, v, precio, stock);
     }
 
     @Override
@@ -28,9 +24,6 @@ public class Perecedero extends Producto {
             nuevoPrecio *= 0.9; // Aplica un descuento del 10% en otros casos
         }
         setPrecio(nuevoPrecio); // Actualiza el precio usando el setter
-    }
-
-    private void setPrecio(double nuevoPrecio) {
     }
 
     // Getter para díasCaducar

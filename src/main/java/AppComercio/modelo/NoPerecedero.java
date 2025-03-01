@@ -11,6 +11,6 @@ public class NoPerecedero extends Producto {
 
     @Override
     public void actualizarPrecio() {
-        precio *= 0.9;
+        double precio = 0.9;
     }
 }
