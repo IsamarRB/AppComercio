@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class AppComercio {
     public static void main(String[] args) {
+        System.out.println("¡Bienvenido a Swally Store! :)");
         // Crear una instancia de Almacen
         Almacen almacen = new Almacen();
         almacen.crearAlmacen(); // Llenar el array de productos
