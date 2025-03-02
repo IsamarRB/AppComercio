@@ -5,6 +5,7 @@ import java.util.List;
 import AppComercio.modelo.Producto;
 
 public class Cliente implements GestionClientes {
+    public Cliente cliente;
     private Persona persona;
     private List<Producto> carrito;
 

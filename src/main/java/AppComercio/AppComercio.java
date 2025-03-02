@@ -27,7 +27,7 @@ public class AppComercio {
             // Mostrar los productos disponibles
             Utilidades.mostrarProductos(productos);
 
-            System.out.println("Ingrese código de producto a comprar (o 'salir' para finalizar):");
+            System.out.println("Par iniciar la compra ingrese código de producto a comprar (o 'salir' para finalizar):");
             opcion = scanner.nextLine();
 
             if (!opcion.equalsIgnoreCase("salir")) {
@@ -78,6 +78,7 @@ public class AppComercio {
         cliente.mostrarCarrito();
 
         // Enviar el pedido al cliente
+        cliente.infoCliente();
         cliente.enviarPedido();
 
         // Mostrar la lista actualizada de productos con el stock modificado
