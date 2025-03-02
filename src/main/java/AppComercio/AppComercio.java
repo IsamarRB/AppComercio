@@ -27,7 +27,7 @@ public class AppComercio {
             // Mostrar los productos disponibles
             Utilidades.mostrarProductos(productos);
 
-            System.out.println("Par iniciar la compra ingrese código de producto a comprar (o 'salir' para finalizar):");
+            System.out.println("Para iniciar la compra ingrese código de producto a comprar (o 'salir' para finalizar):");
             opcion = scanner.nextLine();
 
             if (!opcion.equalsIgnoreCase("salir")) {
@@ -59,14 +59,16 @@ public class AppComercio {
 
                                 System.out.println(cantidad + " unidades de " + p.getNombre() + " agregadas al carrito.");
                             } else {
-                                System.out.println("No hay suficiente stock. Stock disponible: " + p.getStock());
+                                System.out.println("¡¡No hay stock suficiente!!");
+                                p.incrementarStock(5); // Incrementar el stock en 5 unidades
+                                System.out.println("Se han añadido 5 unidades más al stock del producto.");
                             }
-                            break;
+                            break; // Salir del bucle una vez que se ha encontrado el producto
                         }
                     }
 
                     if (!productoEncontrado) {
-                        System.out.println("Producto no encontrado. Intente de nuevo.");
+                        System.out.println("¡¡No existe el producto en el almacén!!");
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Entrada inválida. Ingrese un número válido.");
@@ -80,6 +82,8 @@ public class AppComercio {
         // Enviar el pedido al cliente
         cliente.infoCliente();
         cliente.enviarPedido();
+
+        System.out.println("Compra finalizada ¡Gracias por comprar en Swally Store!");
 
         // Mostrar la lista actualizada de productos con el stock modificado
         System.out.println("\nLista actualizada de productos en el almacén:");
