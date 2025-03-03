@@ -67,5 +67,5 @@ Desarrollado como parte del curso de Java I y II.
 Este proyecto se distribuye bajo la licencia MIT. Puedes ver los detalles en el archivo `LICENSE`.
 
 ## Copyright
-© 2025 Propiedad de Isamar Romero Bellorin. Todos los derechos reservados.
+© 2025 Propiedad intelectual de Isamar Romero Bellorin. Todos los derechos reservados.
 
